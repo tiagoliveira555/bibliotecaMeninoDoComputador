@@ -1,0 +1,13 @@
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2em;
+    color: red;
+    list-style: none;
+    cursor: pointer;
+}
