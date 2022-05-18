@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './components/pages/Home';
 import Container from './components/layout/Container';
@@ -9,6 +9,7 @@ import Sobre from './components/pages/Sobre';
 import './index.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import LivroCadastrar from './components/pages/LivroCadastrar';
 
 const App = () => {
     return (
@@ -24,6 +25,9 @@ const App = () => {
                     </Route>
                     <Route exact path="/sobre">
                         <Sobre />
+                    </Route>
+                    <Route exact path="/livros/cadastrar">
+                        <LivroCadastrar />
                     </Route>
                 </Container>
             </Switch>

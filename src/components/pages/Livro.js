@@ -1,5 +1,7 @@
+import Table from "../form/Table"
+
 const Livro = () => {
-    return <h1>Livro</h1>
+    return <Table />
 }
 
 export default Livro;
