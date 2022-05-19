@@ -27,8 +27,7 @@ const App = () => {
     }, [livros]);
 
     const addLivro = (livro) => {
-        const newListLivros = [...livros, livro];
-        setLivros(newListLivros);
+        setLivros((prevState) => [...prevState, livro]);
     };
 
     const editarLivro = (livro) => {
