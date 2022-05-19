@@ -6,6 +6,7 @@ import Button from '../form/Button';
 
 import Input from '../form/Input';
 import styles from './Signin.module.css';
+import logo from '../../img/logo_menino_do_computador.jpg';
 
 const Signin = () => {
 
@@ -35,8 +36,8 @@ const Signin = () => {
 
     return (
         <div className={styles.container}>
-            <h1>SISTEMA DE LOGIN</h1>
             <div className={styles.content}>
+                <img className={styles.img} src={logo} alt="menino_do_computador" />
                 <Input
                     text="E-mail"
                     type="email"
@@ -55,9 +56,9 @@ const Signin = () => {
                     value={senha}
                     handleOnChange={(e) => [setSenha(e.target.value), setError('')]}
                 />
-                <label>{error}</label>
+                <label className={styles.label_error}>{error}</label>
                 <Button type="button" onClick={handleLogin} text="Entrar" />
-                <label>Não tem conta?<strong><Link to="/signup">&nbsp;Registre-se</Link></strong></label>
+                <label className={styles.label}>Não tem conta?<strong><Link style={{ textDecoration: 'none' }} to="/signup">&nbsp;Registre-se</Link></strong></label>
             </div>
         </div>
     );

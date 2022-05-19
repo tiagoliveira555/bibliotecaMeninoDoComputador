@@ -6,6 +6,7 @@ import Button from '../form/Button';
 import Input from '../form/Input';
 
 import styles from './Signup.module.css';
+import logo from '../../img/logo_menino_do_computador.jpg';
 
 const Signup = () => {
 
@@ -40,8 +41,8 @@ const Signup = () => {
 
     return (
         <div className={styles.container}>
-            <h1>SISTEMA DE LOGIN</h1>
             <div className={styles.content}>
+                <img className={styles.img} src={logo} alt="menino_do_computador" />
                 <Input
                     text="E-mail"
                     type="email"
@@ -69,9 +70,9 @@ const Signup = () => {
                     value={senha}
                     handleOnChange={(e) => [setSenha(e.target.value), setError('')]}
                 />
-                <label>{error}</label>
+                <label className={styles.label_error}>{error}</label>
                 <Button type="button" onClick={handleSignup} text="Inscrever-se" />
-                <label>Já tem uma conta?<strong><Link to="/">&nbsp;Entre</Link></strong></label>
+                <label className={styles.label}>Já tem uma conta?<strong><Link style={{ textDecoration: 'none' }} to="/">&nbsp;Entre</Link></strong></label>
             </div>
         </div>
     );
