@@ -1,0 +1,9 @@
+.livro_container {
+    min-width: 100%;
+    min-height: 500px;
+}
+
+.btn {
+    margin-top: 30px;
+    margin-left: 40px;
+}

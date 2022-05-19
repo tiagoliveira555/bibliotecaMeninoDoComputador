@@ -1,8 +1,8 @@
 .table {
-    width: 98%;
+    width: 100%;
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0px 0px 5px #ccc;
+    /* box-shadow: 0px 0px 5px #ccc; */
     border-radius: 5px;
     max-width: 1120px;
     margin: 20px auto;
@@ -12,6 +12,25 @@
     text-align: center;
     border-bottom: inset;
     padding-bottom: 5px;
-    text-align: center;
     width: auto;
+}
+
+.table tbody tr td {
+    padding-top: 15px;
+    text-align: center;
+    word-break: break-all;
+}
+
+.edit {
+    margin-right: 30px;
+    color: #222;
+}
+
+.delete {
+    color: #222;;
+}
+
+.delete:hover, 
+.edit:hover {
+    color: #ffbb33;
 }

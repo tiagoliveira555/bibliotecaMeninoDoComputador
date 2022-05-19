@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Home from './components/pages/Home';
@@ -10,8 +10,33 @@ import './index.css';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import LivroCadastrar from './components/pages/LivroCadastrar';
+import LivroEditar from './components/pages/LivroEditar';
 
 const App = () => {
+
+    const data = localStorage.getItem("livros");
+
+    const [livros, setLivros] = useState(
+        data ? JSON.parse(data) : []
+    );
+
+    useEffect(() => {
+
+        localStorage.setItem("livros", JSON.stringify(livros));
+
+    }, [livros]);
+
+    const addLivro = (livro) => {
+        const newListLivros = [...livros, livro];
+        setLivros(newListLivros);
+    };
+
+    const editarLivro = (livro) => {
+        
+    };
+
+    const [livroEditado, setLivroEditado] = useState({});
+
     return (
         <Router>
             <Navbar />
@@ -21,13 +46,16 @@ const App = () => {
                         <Home />
                     </Route>
                     <Route exact path="/livros">
-                        <Livro />
+                        <Livro livros={livros} setLivroEditado={setLivroEditado} />
                     </Route>
                     <Route exact path="/sobre">
                         <Sobre />
                     </Route>
                     <Route exact path="/livros/cadastrar">
-                        <LivroCadastrar />
+                        <LivroCadastrar addLivro={addLivro} />
+                    </Route>
+                    <Route exact path="/livros/editar">
+                        <LivroEditar livroEditado={livroEditado} editarLivro={editarLivro} />
                     </Route>
                 </Container>
             </Switch>
