@@ -1,88 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/auth';
 
-import Home from './components/pages/Home';
-import Container from './components/layout/Container';
-import Livro from './components/pages/Livro';
-import Sobre from './components/pages/Sobre';
+import useAuth from './hooks/useAuth';
 
 import './index.css';
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import LivroCadastrar from './components/pages/LivroCadastrar';
-import LivroEditar from './components/pages/LivroEditar';
+import Principal from './Principal';
+import Signin from './components/pages/Signin';
+import Signup from './components/pages/Signup';
+
+const Private = ({ Item }) => {
+    const { signed } = useAuth();
+
+    return signed > 0 ? <Item /> : <Signin />
+}
 
 const App = () => {
 
-    const data = localStorage.getItem("livros");
-
-    const [livros, setLivros] = useState(
-        data ? JSON.parse(data) : []
-    );
-
-    useEffect(() => {
-
-        localStorage.setItem("livros", JSON.stringify(livros));
-
-    }, [livros]);
-
-    const addLivro = (livro) => {
-        setLivros((prevState) => [...prevState, livro]);
-
-        alert("Livro adicionado com sucesso!");
-    };
-
-    const editarLivro = (livro) => {
-        setLivros((prevState) =>
-            prevState.map(l => l.id === livro.id ? l = livro : l));
-
-        alert("Livro editado com sucesso!");
-    };
-
-    const deletarLivro = (id) => {
-        setLivros((prevState) => prevState.filter(livro => livro.id !== id));
-
-        alert('Livro deletado com sucesso!');
-    };
-
-    const [livroEditado, setLivroEditado] = useState({});
-
     return (
-        <Router>
-            <Navbar />
-            <Switch>
-                <Container customClass="min-heigth">
-                    
-                    <Route exact path="/">
-                        <Home />
+        <AuthProvider>
+            <Router>
+                <Switch>
+                    <Route exact path="/home">
+                        <Private Item={Principal} />
                     </Route>
-
                     <Route exact path="/livros">
-                        <Livro 
-                            livros={livros} 
-                            setLivroEditado={setLivroEditado} 
-                            deletarLivro={deletarLivro} 
-                        />
+                        <Private Item={Principal} />
                     </Route>
-
-                    <Route exact path="/sobre">
-                        <Sobre />
-                    </Route>
-
                     <Route exact path="/livros/cadastrar">
-                        <LivroCadastrar addLivro={addLivro} />
+                        <Private Item={Principal} />
+                    </Route>
+                    <Route exact path="/livros/editar">
+                        <Private Item={Principal} />
+                    </Route>
+                    <Route exact path="/sobre">
+                        <Private Item={Principal} />
                     </Route>
 
-                    <Route exact path="/livros/editar">
-                        <LivroEditar 
-                            livroEditado={livroEditado} 
-                            editarLivro={editarLivro} 
-                        />
+                    <Route exact path="/">
+                        <Signin />
                     </Route>
-                </Container>
-            </Switch>
-            <Footer />
-        </Router>
+                    <Route exact path="/signup">
+                        <Signup />
+                    </Route>
+                    <Route exact path="*">
+                        <Signin />
+                    </Route>
+                </Switch>
+            </Router>
+        </AuthProvider>
     );
 }
 
