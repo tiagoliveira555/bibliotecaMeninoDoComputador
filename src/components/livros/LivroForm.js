@@ -5,9 +5,8 @@ import SubmitButton from '../form/SubmitButton';
 import styles from './LivroForm.module.css';
 
 const LivroForm = ({ btnText, addLivro, livroEditado, editarLivro }) => {
+    
     const history = useHistory();
-
-    console.log(livroEditado);
     
     const [nomeLivro, setNomeLivro] = useState(livroEditado !== undefined ? livroEditado.livro : '');
     const [autor, setAutor] = useState(livroEditado !== undefined ? livroEditado.autor : '');
