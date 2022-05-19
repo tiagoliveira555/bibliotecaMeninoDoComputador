@@ -28,15 +28,20 @@ const App = () => {
 
     const addLivro = (livro) => {
         setLivros((prevState) => [...prevState, livro]);
+
+        alert("Livro adicionado com sucesso!");
     };
 
     const editarLivro = (livro) => {
         setLivros((prevState) =>
             prevState.map(l => l.id === livro.id ? l = livro : l));
+
+        alert("Livro editado com sucesso!");
     };
 
     const deletarLivro = (id) => {
         setLivros((prevState) => prevState.filter(livro => livro.id !== id));
+
         alert('Livro deletado com sucesso!');
     };
 
@@ -47,20 +52,32 @@ const App = () => {
             <Navbar />
             <Switch>
                 <Container customClass="min-heigth">
+                    
                     <Route exact path="/">
                         <Home />
                     </Route>
+
                     <Route exact path="/livros">
-                        <Livro livros={livros} setLivroEditado={setLivroEditado} deletarLivro={deletarLivro} />
+                        <Livro 
+                            livros={livros} 
+                            setLivroEditado={setLivroEditado} 
+                            deletarLivro={deletarLivro} 
+                        />
                     </Route>
+
                     <Route exact path="/sobre">
                         <Sobre />
                     </Route>
+
                     <Route exact path="/livros/cadastrar">
                         <LivroCadastrar addLivro={addLivro} />
                     </Route>
+
                     <Route exact path="/livros/editar">
-                        <LivroEditar livroEditado={livroEditado} editarLivro={editarLivro} />
+                        <LivroEditar 
+                            livroEditado={livroEditado} 
+                            editarLivro={editarLivro} 
+                        />
                     </Route>
                 </Container>
             </Switch>

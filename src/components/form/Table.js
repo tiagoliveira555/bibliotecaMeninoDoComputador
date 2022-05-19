@@ -30,8 +30,18 @@ const Table = ({ livros, setLivroEditado, deletarLivro }) => {
                             <td>{livro.autor}</td>
                             <td>{livro.editora}</td>
                             <td>
-                                <Link className={styles.edit} onClick={() => editar(livro)} to="/livros/editar"><FaPencilAlt /></Link>
-                                <Link className={styles.delete} onClick={() => deletar(livro.id)} to="/livros"><FaTrash /></Link>
+                                <Link 
+                                    className={styles.edit} 
+                                    onClick={() => editar(livro)} 
+                                    to="/livros/editar">
+                                    <FaPencilAlt />
+                                </Link>
+                                
+                                <Link className={styles.delete} 
+                                    onClick={() => deletar(livro.id)} 
+                                    to="/livros">
+                                    <FaTrash />
+                                </Link>
                             </td>
                         </tr>
                     ))

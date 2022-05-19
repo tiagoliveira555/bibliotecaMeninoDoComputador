@@ -5,7 +5,7 @@ import SubmitButton from '../form/SubmitButton';
 import styles from './LivroForm.module.css';
 
 const LivroForm = ({ btnText, addLivro, livroEditado, editarLivro }) => {
-    
+
     const history = useHistory();
     
     const [nomeLivro, setNomeLivro] = useState(livroEditado !== undefined ? livroEditado.livro : '');
@@ -32,13 +32,8 @@ const LivroForm = ({ btnText, addLivro, livroEditado, editarLivro }) => {
             return;
         }
 
-        if (livroEditado === undefined) {
-            addLivro(livro);
-            alert("Livro adicionado com sucesso!");
-        } else {
-            editarLivro(livro);
-            alert("Livro editado com sucesso!");
-        }
+        livroEditado === undefined ? addLivro(livro) : editarLivro(livro);
+
         history.push("/livros");
     }
 
