@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link to="/home" style={{ textDecoration: 'none' }}>
                 <div className={styles.logo}>
                     <img className={styles.img} src={logo} alt="menino_do_computador" />
-                    <span className={styles.title}>Biblioteca Menino do Computador</span>
+                    <span className={styles.title}>Menino do Computador Library</span>
                 </div>
             </Link>
             <ul className={styles.list}>

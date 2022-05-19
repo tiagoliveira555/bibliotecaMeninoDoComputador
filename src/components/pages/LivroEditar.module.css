@@ -8,3 +8,14 @@
     margin-bottom: 0.5em;
     color: #7b7b7b;
 }
+
+@media (max-width: 560px) {
+    .cadastro_container {
+        padding: 1em;
+    }
+
+    .cadastro_container h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+}

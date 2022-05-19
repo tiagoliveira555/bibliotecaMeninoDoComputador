@@ -23,10 +23,33 @@
     margin-bottom: 4em;
     color: #7b7b7b;
     max-width: 75%;
+    text-align: justify;
 }
 
 .home_container img {
     width: 350px;
     margin: 2em 0;
     border-radius: 3px;
+}
+
+@media (max-width: 750px) {
+    .home_container h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 560px) {
+    .home_container {
+        padding: 1em;
+        min-height: 300px;
+    }
+
+    .home_container h1 {
+        font-size: 1em;
+    }
+
+    .home_container p {
+        max-width: 100%;
+        font-size: 12px;
+    }
 }

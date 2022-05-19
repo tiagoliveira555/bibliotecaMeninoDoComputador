@@ -4,10 +4,6 @@
     justify-content: space-between;
     margin: 0 auto;
     flex-wrap: wrap;
-
-    @media (max-width: 560px) {
-        max-width: 100%;
-    }
 }
 
 .min-heigth {
@@ -21,4 +17,10 @@
 .column {
     flex-direction: column;
     justify-content: flex-start;
+}
+
+@media (max-width: 560px) {
+    .container {
+        max-width: 100%;
+    }
 }

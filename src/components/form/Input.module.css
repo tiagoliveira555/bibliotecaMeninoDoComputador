@@ -18,3 +18,9 @@
 .form_control input::placeholder {
     color: #7b7b7b;
 }
+
+@media (max-width: 560px) {
+    .form_control label {
+        margin-bottom: .3em;
+    }
+}

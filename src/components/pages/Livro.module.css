@@ -7,3 +7,9 @@
     margin-top: 30px;
     margin-left: 40px;
 }
+
+@media (max-width: 560px) {
+    .livro_container {
+        min-height: 300px;
+    }
+}

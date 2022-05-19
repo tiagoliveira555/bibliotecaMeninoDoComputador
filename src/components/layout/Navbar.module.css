@@ -40,3 +40,22 @@
 .item a:hover {
     color: #FFE05E;
 }
+
+@media (max-width: 750px) {
+    .title {
+        display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img {
+        margin-bottom: 10px;
+    }
+}
