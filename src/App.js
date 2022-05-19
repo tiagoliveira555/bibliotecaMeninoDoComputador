@@ -32,7 +32,8 @@ const App = () => {
     };
 
     const editarLivro = (livro) => {
-        
+        setLivros((prevState) =>
+            prevState.map(l => l.id === livro.id ? l = livro : l));
     };
 
     const [livroEditado, setLivroEditado] = useState({});
