@@ -2,7 +2,7 @@ import Table from "../form/Table"
 import LinkButton from "../layout/LinkButton";
 import styles from './Livro.module.css';
 
-const Livro = ({ livros, setLivroEditado }) => {
+const Livro = ({ livros, setLivroEditado, deletarLivro }) => {
 
     return (
         <section className={styles.livro_container}>
@@ -12,7 +12,7 @@ const Livro = ({ livros, setLivroEditado }) => {
                     text="Cadastrar Livro"
                 />
             </div>
-            <Table livros={livros} setLivroEditado={setLivroEditado} />
+            <Table livros={livros} setLivroEditado={setLivroEditado} deletarLivro={deletarLivro} />
         </section>
     );
 }

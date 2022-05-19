@@ -35,6 +35,11 @@ const App = () => {
             prevState.map(l => l.id === livro.id ? l = livro : l));
     };
 
+    const deletarLivro = (id) => {
+        setLivros((prevState) => prevState.filter(livro => livro.id !== id));
+        alert('Livro deletado com sucesso!');
+    };
+
     const [livroEditado, setLivroEditado] = useState({});
 
     return (
@@ -46,7 +51,7 @@ const App = () => {
                         <Home />
                     </Route>
                     <Route exact path="/livros">
-                        <Livro livros={livros} setLivroEditado={setLivroEditado} />
+                        <Livro livros={livros} setLivroEditado={setLivroEditado} deletarLivro={deletarLivro} />
                     </Route>
                     <Route exact path="/sobre">
                         <Sobre />
