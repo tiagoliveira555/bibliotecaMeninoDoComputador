@@ -6,7 +6,12 @@ const Footer = () => {
         <footer className={styles.footer}>
             <ul>
                 <li className={styles.logo}>
-                    <FaYoutube />
+                    <a 
+                        className={styles.link}
+                        href="https://www.youtube.com/c/MeninodoComputador2000" 
+                        target="_blank" rel="noreferrer">
+                        <FaYoutube />
+                    </a>
                 </li>
             </ul>
             <span>Sigam nosso Canal do Youtube!</span>

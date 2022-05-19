@@ -5,9 +5,13 @@
     text-align: center;
 }
 
+.link {
+    text-decoration: none;
+    color: red;
+}
+
 .logo {
     font-size: 2em;
-    color: red;
     list-style: none;
     cursor: pointer;
 }
